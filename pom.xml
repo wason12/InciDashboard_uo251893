@@ -35,6 +35,42 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Dependencias no predeterminadas -->
+		 <!-- H2 Database -->
+		 <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		 <dependency>		
+		 	<groupId>com.h2database</groupId>		
+		 	<artifactId>h2</artifactId>		
+		 </dependency>
+		<!-- FIN DE BLOQUE -->
+		<!-- Thymeleaf -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<!-- FIN DE BLOQUE -->
+		<!-- Kafka -->
+		<dependency>
+	      <groupId>org.springframework.kafka</groupId>
+	      <artifactId>spring-kafka</artifactId>
+	    </dependency>
+	    <dependency>
+	      <groupId>org.springframework.kafka</groupId>
+	      <artifactId>spring-kafka-test</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+		<!-- FIN DE BLOQUE -->
+		<!-- JSON Parser -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<!-- FIN DE BLOQUE -->
+		<!-- FIN DE BLOQUE -->
 	</dependencies>
 
 	<build>
@@ -43,6 +79,27 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- CodeCov -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.9</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- FIN DE BLOQUE -->
 		</plugins>
 	</build>
 
