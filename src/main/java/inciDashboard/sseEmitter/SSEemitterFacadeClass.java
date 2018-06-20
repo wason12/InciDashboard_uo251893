@@ -6,10 +6,10 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-import inciDashboard.entities.Incidencia;
-
+@Component
 public class SSEemitterFacadeClass implements SSEemitterFacade {
 
 	public List<SseEmitter> emitters = Collections.synchronizedList(new ArrayList<SseEmitter>());
@@ -28,7 +28,7 @@ public class SSEemitterFacadeClass implements SSEemitterFacade {
 	}
 
 	@Override
-	public void UpdateViews(Incidencia incidencia) {
+	public void UpdateViews(String incidencia) {
 		for (SseEmitter emitter : emitters) {
 		    try {
 		    	emitter.send(incidencia, MediaType.APPLICATION_JSON);

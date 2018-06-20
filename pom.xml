@@ -47,12 +47,6 @@
 		 	<artifactId>h2</artifactId>		
 		 </dependency>
 		<!-- FIN DE BLOQUE -->
-		<!-- Thymeleaf -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<!-- FIN DE BLOQUE -->
 		<!-- Kafka -->
 		<dependency>
 	      <groupId>org.springframework.kafka</groupId>
