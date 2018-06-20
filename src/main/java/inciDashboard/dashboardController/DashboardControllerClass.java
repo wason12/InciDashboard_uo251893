@@ -22,9 +22,9 @@ import inciDashboard.sseEmitter.SSEemitterFacade;
 @RestController
 public class DashboardControllerClass implements DashboardControllerFacade, NewIncidence {
 
-	@Autowired 
+	@Autowired
 	private SSEemitterFacade sseEmitter;
-	
+
 	@Autowired
 	private InciRepositoryFacade inciRepository;
 
@@ -33,17 +33,17 @@ public class DashboardControllerClass implements DashboardControllerFacade, NewI
 	public List<Incidencia> getIncidences(@RequestBody Operator operario, HttpServletResponse response) {
 		System.out.println(operario);
 		Operator savedOperator = inciRepository.checkOperador(operario);
-		if(savedOperator != null) {
+		if (savedOperator != null) {
 			List<Incidencia> incidencias = inciRepository.IncidencesInfo();
-			
+
 			response.setStatus(202);
-			
+
 			return incidencias;
 		}
-		
+
 		response.setStatus(404);
 		response.setHeader("error", "Email o password incorrectos");
-		
+
 		return null;
 	}
 
@@ -51,23 +51,22 @@ public class DashboardControllerClass implements DashboardControllerFacade, NewI
 	@RequestMapping(value = "/changestate", method = RequestMethod.PUT)
 	public String ChangeState(Incidencia incidencia, Operator operario) {
 		Operator savedOperator = inciRepository.checkOperador(operario);
-		if(savedOperator != null) {
+		if (savedOperator != null) {
 			inciRepository.UpdateIncidence(incidencia);
-			
+
 			return "exito";
 		}
-		
-		
+
 		return "error";
 	}
 
 	@Override
 	public SseEmitter subscribe() {
 		SseEmitter emitter = sseEmitter.RegisterOperator();
-		
+
 		return emitter;
 	}
-	
+
 	@Override
 	public void notify(String incidencia) {
 		sseEmitter.UpdateViews(incidencia);

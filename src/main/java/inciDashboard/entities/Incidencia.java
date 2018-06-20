@@ -144,7 +144,6 @@ public class Incidencia {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
 
 	@Override
 	public int hashCode() {

@@ -61,6 +61,4 @@ public class Localizacion {
 		return true;
 	}
 
-	
-
 }

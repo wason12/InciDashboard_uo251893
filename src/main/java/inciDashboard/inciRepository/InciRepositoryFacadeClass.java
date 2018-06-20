@@ -32,10 +32,10 @@ public class InciRepositoryFacadeClass implements InciRepositoryFacade {
 	@Override
 	public Operator checkOperador(Operator operador) {
 		Operator saved = operatorRepo.findByEmail(operador.getEmail());
-		
-		if(saved == null || operador.getPassword().equals(saved.getPassword()))
+
+		if (saved == null || operador.getPassword().equals(saved.getPassword()))
 			return saved;
-		
+
 		return null;
 	}
 

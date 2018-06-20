@@ -7,7 +7,7 @@ import inciDashboard.entities.Operator;
 
 @Repository
 public interface OperatorRepository extends CrudRepository<Operator, Long> {
-	
+
 	Operator findByEmail(String email);
 
 }
