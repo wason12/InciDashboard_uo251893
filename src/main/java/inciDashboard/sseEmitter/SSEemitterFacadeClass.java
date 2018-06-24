@@ -3,6 +3,7 @@ package inciDashboard.sseEmitter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.http.MediaType;
@@ -29,11 +30,14 @@ public class SSEemitterFacadeClass implements SSEemitterFacade {
 
 	@Override
 	public void UpdateViews(String incidencia) {
-		for (SseEmitter emitter : emitters) {
-			try {
-				emitter.send(incidencia, MediaType.APPLICATION_JSON);
-			} catch (IOException e) {
-				emitter.complete();
+		synchronized (this.emitters) {
+			for (Iterator<SseEmitter> iter = emitters.iterator() ; iter.hasNext() ; ) {
+				SseEmitter emitter = iter.next();
+				try {
+					emitter.send(incidencia, MediaType.APPLICATION_JSON);
+				} catch (IOException e) {
+					emitter.complete();
+				}
 			}
 		}
 	}

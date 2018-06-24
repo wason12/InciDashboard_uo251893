@@ -29,7 +29,7 @@ public class DashboardControllerClass implements DashboardControllerFacade, NewI
 	private InciRepositoryFacade inciRepository;
 
 	@Override
-	@RequestMapping(value = "/getincidences")
+	@RequestMapping(value = "/getincidences", method = RequestMethod.POST)
 	public List<Incidencia> getIncidences(@RequestBody Operator operario, HttpServletResponse response) {
 		System.out.println(operario);
 		Operator savedOperator = inciRepository.checkOperador(operario);
@@ -61,6 +61,7 @@ public class DashboardControllerClass implements DashboardControllerFacade, NewI
 	}
 
 	@Override
+	@RequestMapping("/subscribe")
 	public SseEmitter subscribe() {
 		SseEmitter emitter = sseEmitter.RegisterOperator();
 

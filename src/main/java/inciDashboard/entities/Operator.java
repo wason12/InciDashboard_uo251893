@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Operator {
 	@Id
@@ -21,6 +23,7 @@ public class Operator {
 	private String password;
 	private String name;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "operadorAsignado", cascade = CascadeType.ALL)
 	private Set<Incidencia> incidenciasAsignadas = new HashSet<Incidencia>();
 

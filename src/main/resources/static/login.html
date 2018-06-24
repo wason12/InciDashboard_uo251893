@@ -45,10 +45,10 @@
                         <form role="form">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus id="email">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus required id="email" >
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" id="password">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="" required id="password">
                                 </div>
                                 
                                 <button id="buttonSubmit" class="btn btn-lg btn-success btn-block" type="button">Entrar</button>
@@ -71,6 +71,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
 </body>
 
@@ -78,8 +80,8 @@
 	var URLbase = "http://localhost:90";
 	
 	$("#buttonSubmit").click(function(){
-		document.cookie = "email=" + $("#email").val() + "; path=/";
-		document.cookie = "email=" + $("#password").val() + "; path=/";
+		Cookies.set("email", $("#email").val(), { path: '/'});
+		Cookies.set("password", $("#password").val(), { path: '/'});
 		window.location.replace(URLbase + "/mainview.html");
 	});
 	
