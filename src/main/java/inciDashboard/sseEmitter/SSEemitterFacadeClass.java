@@ -31,7 +31,7 @@ public class SSEemitterFacadeClass implements SSEemitterFacade {
 	@Override
 	public void UpdateViews(String incidencia) {
 		synchronized (this.emitters) {
-			for (Iterator<SseEmitter> iter = emitters.iterator() ; iter.hasNext() ; ) {
+			for (Iterator<SseEmitter> iter = emitters.iterator(); iter.hasNext();) {
 				SseEmitter emitter = iter.next();
 				try {
 					emitter.send(incidencia, MediaType.APPLICATION_JSON);

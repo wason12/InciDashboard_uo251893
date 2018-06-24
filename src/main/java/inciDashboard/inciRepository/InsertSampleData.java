@@ -35,7 +35,7 @@ public class InsertSampleData {
 		inci.setCamposLista("prueba/test,campo2/algo");
 		inci.setOperadorAsignado(operador);
 		inci.setUrlMasInfo("si");
-		
+
 		incidenceRepository.save(inci);
 
 	}
