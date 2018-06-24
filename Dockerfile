@@ -1,15 +1,4 @@
-FROM java:8
-
-RUN apt-get update
-
-RUN apt-get install -y maven
-
-RUN ls -l
-
-WORKDIR /code
-
-ADD pom.xml /code/pom.xml
-
-ADD src /code/src
-
+FROM maven:3.5-jdk-8-alpine
+ADD ./ ./
+EXPOSE 80
 CMD ["mvn", "spring-boot:run"]
