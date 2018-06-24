@@ -36,16 +36,18 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- Dependencias no predeterminadas -->
-		 <!-- H2 Database -->
+		 <!-- POSTGRESQL Database -->
 		 <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
+		<dependency>
+		  <groupId>org.postgresql</groupId>
+		  <artifactId>postgresql</artifactId>
+		  <version>9.3-1100-jdbc41</version>
+		</dependency>
 
-		 <dependency>		
-		 	<groupId>com.h2database</groupId>		
-		 	<artifactId>h2</artifactId>		
-		 </dependency>
 		<!-- FIN DE BLOQUE -->
 		<!-- Kafka -->
 		<dependency>
