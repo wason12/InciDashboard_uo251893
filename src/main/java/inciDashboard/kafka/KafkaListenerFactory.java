@@ -37,6 +37,11 @@ public class KafkaListenerFactory {
 
 	@Bean
 	public Map<String, Object> consumerConfigs() {
+		String user = "5dwuarw1";
+		String password = "zAmjG5j3eaIR4HwKKUqV51P3_NHwxGDw";
+		String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
+		String jaasCfg = String.format(jaasTemplate, user, password);
+
 		Map<String, Object> props = new HashMap<>();
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "ec2-34-209-98-67.us-west-2.compute.amazonaws.com:9092");
 		props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
@@ -45,6 +50,17 @@ public class KafkaListenerFactory {
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, "es.uniovi");
+		props.put("key.deserializer", StringDeserializer.class.getName());
+		props.put("value.deserializer", StringDeserializer.class.getName());
+		props.put("group.id", user + "-consumer");
+		props.put("enable.auto.commit", "true");
+		props.put("auto.commit.interval.ms", "1000");
+		props.put("auto.offset.reset", "earliest");
+		props.put("session.timeout.ms", "30000");
+		props.put("security.protocol", "SASL_SSL");
+		props.put("sasl.mechanism", "SCRAM-SHA-256");
+		props.put("sasl.jaas.config", jaasCfg);
+		
 		return props;
 	}
 

@@ -7,13 +7,14 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service;
 
 import inciDashboard.entities.Estado;
 import inciDashboard.entities.Incidencia;
 import inciDashboard.entities.Localizacion;
 import inciDashboard.entities.Operator;
 
-//@Service
+@Service
 public class InsertSampleData {
 
 	@Autowired
