@@ -14,7 +14,7 @@ class Mapa{
 
         this.mapa = new google.maps.Map(document.getElementById(id), {
             center: espanya,
-            zoom: 3
+            zoom: 6
         });
 
         this.procesarIncidencias();

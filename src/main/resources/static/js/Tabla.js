@@ -28,7 +28,7 @@ class Tabla{
 
     procesarIncidencias(incidencias){
         for(var i = 0 ; i< incidencias.length ; i++){
-            this.dataset[i] = this.parsear(incidencias[i]);
+            this.dataset.push(this.parsear(incidencias[i]));
         }
     }
 
@@ -39,8 +39,8 @@ class Tabla{
         fila[2] = incidencia.descripcion;
 
         var url = "no";
-        if(incidencia.urlMasInfo != null){
-            var href = "http://localhost:80/fotossubidas/" + incidencia.id + ".jpg";
+        if(incidencia.urlMasInfo == "si"){
+            var href = "http://wason12.ddns.net:81/fotossubidas/" + incidencia.id + ".jpg";
             url = "<a href=" + href + ">mas info</a>"
         }
         fila[3] = url;
