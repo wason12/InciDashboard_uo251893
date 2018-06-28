@@ -36,7 +36,4 @@ Temporalmente está desplegado en: http://wason12.ddns.net:82/ a la espera de qu
 
 # Usuarios de prueba para la aplicación:
 
-- Identificador: prueba1 ; Contraseña: 1234 ; tipo: Person
-- Identificador: prueba2 ; Contraseña: 1234 ; tipo: Person
-- Identificador: prueba3 ; Contraseña: 1234 ; tipo: Person
-- Identificador: prueba4 ; Contraseña: 1234 ; tipo: Person
+- Identificador: operador@gmail.com ; Contraseña: 1234
